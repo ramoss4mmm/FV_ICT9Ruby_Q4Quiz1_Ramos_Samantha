@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>Q4Quiz1</title>
+
+<style type="text/css">
+	body{
+		background-image: url(https://img.freepik.com/free-vector/cool-wavy-abstract-gradient_53876-93826.jpg?t=st=1745380366~exp=1745383966~hmac=03264a724cba2396583aa0a87c2e67650f076222c119527ebef2e920666a4ed4&w=2000);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: fixed;
+	}
+	#img1{
+		width: 400px;
+		height: 400px; 
+	}
+
+	h1{
+		font-family: monospace, monaco;
+	}
+
+	h2{
+		font-family: monospace, monaco;
+	}
+
+	p{
+		font-family: monospace, monaco;
+	}
+
+	details{
+		font-family: monospace, monaco;
+	}
+
+	#button1{
+		font-family: monospace, monaco;
+		font-size: 30px;
+		background-color: #87CEEB;
+	}
+
+	kbd{
+		font-size: 30px;
+	}
+</style>
+</head>
+<body>
+<center>
+<div class="col-md-6">
+<img id="img1" src="bmi.png">
+
+<h1>BMI Calculator</h1>
+<p>Calculate your weight to see if you are healthy ❤️</p>
+<p>Take care of yourself</p>
+
+<details ontoggle="message1()">
+	<summary>Instructions</summary>
+	<i id="revealme"></i>
+
+	<br>
+
+	<p>Put your height and weight in the following boxes below.</p>
+</details>
+
+<br>
+
+<h2>Weight in kilograms</h2>
+<input type="number" class="form-control" placeholder="Type here..." id="weight">
+
+<br>
+
+<h2>Height in meters</h2>
+<input type="number" class="form-control" placeholder="Type here..." id="height">
+
+<br>
+
+<button id="button1" type="Submit" class="btn btn-default" onclick="calculation()">Calculate my BMI</button>
+<br><br>
+<kbd id="show_here">BMI</kbd>
+
+</div>
+</center>
+
+<script type="text/javascript">
+//java script calculations
+
+function calculation(){
+	// body...
+
+	let weight = document.getElementById("weight").value;
+	let height = document.getElementById("height").value;
+
+	if (weight === "" || height === "") {
+		document.getElementById("show_here").innerText = "Please input your weight and height.";
+	}
+
+let bmi = weight / Math.pow(height, 2);
+let result = "Your BMI is: " + bmi;
+
+	if (bmi < 18.5) {
+		result = "You are underweight. It's okay just work on yourself more.";
+	} 
+	else if (bmi >= 18.5 && bmi < 24.9) {
+		result = "You have a normal weight. You are wonderful!";
+	} 
+	else if (bmi >= 25 && bmi < 29.9) {
+		result = "You are overweight. It's okay just work on yourself more.";
+	} 
+	else{
+		result = "You are obese. It's okay just work on yourself more and eat less.";
+	} 
+
+	document.getElementById("show_here").innerText = result;
+}
+
+</script>\
+
+
+</body>
+</html>
